@@ -1,0 +1,24 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+
+
+
+.login-logo{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    background-color: #F89D53;
+    width: 50vw;
+    height: 25vh;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    object-fit: cover;
+}
+
+.login-logo img{
+   width: 75%;
+}
+

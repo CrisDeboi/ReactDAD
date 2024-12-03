@@ -1,0 +1,27 @@
+.cart-container{
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+}
+
+.cart-orders{
+    margin-top: 3vh;
+    max-height: 80vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    
+    
+}
+
+.cart-summary{
+    margin-top: 3vh;
+}
+
+.cart-subtitle{
+    color: #C65D1A;
+}
+
+
+

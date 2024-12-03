@@ -1,0 +1,22 @@
+.subplan-container{
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    border: 4px solid;
+    border-color: #C65D1A;
+    border-radius: 15px;
+    padding: 10px;
+    width: 90vw;
+}
+
+.subplan-container:hover{
+    cursor: pointer;
+}
+
+.subplan-title {
+    color: #C65D1A;
+    font-size: 22px;
+}
+
+.subplan-price{
+    text-align: right;
+}

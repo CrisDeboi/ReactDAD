@@ -1,0 +1,15 @@
+.header {
+  width: 100vw;
+  height: 10vh;
+  background-color: #f47521;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#title {
+  color: #fde1c1;
+  font-family: "Dancing Script", cursive;
+  font-weight: bold;
+  font-size: 2em; 
+}

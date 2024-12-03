@@ -1,0 +1,25 @@
+.modal-header {
+  padding: 0 !important;
+  position: relative;
+}
+
+.modal-header .btn-close {
+  position: absolute;
+  color: #c65d1a !important;
+  border-color: transparent;
+  top: 10px;
+  right: 10px;
+  z-index: 10;
+}
+
+.modal-header .btn-close:hover {
+  color: #c65d1a !important;
+}
+
+.counterButton:hover {
+  cursor: pointer;
+}
+
+.values-container{
+  text-align: left;
+}

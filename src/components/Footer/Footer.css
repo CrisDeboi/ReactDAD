@@ -1,0 +1,22 @@
+.footer {
+    width: 100vw;
+    height: 25vh;
+    background-color: #f47521;
+    display: flex;  
+    
+    margin-top: 5em;
+}
+
+.titleContainer{
+   width: 100%;   
+   align-content: center;
+    
+    
+}
+  
+#footerTitle {
+    color: #fde1c1;
+    font-family: "Dancing Script", cursive;
+    font-weight: bold;
+    font-size: 2em; 
+  }
