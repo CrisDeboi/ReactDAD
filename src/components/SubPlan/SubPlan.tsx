@@ -17,13 +17,9 @@ function SubPlan(props: SubPlan) {
   return (
     <>
       <div onClick={goToLogin} className="subplan-container">
-        <div className="subplan-title">
-          <strong>{title}</strong>
-        </div>
+        <div className="subplan-title"><strong>{title}</strong></div>
         <div className="subplan-text">{description}</div>
-        <div className="subplan-price">
-          <strong>Precio: {price}€</strong>
-        </div>
+        <div className="subplan-price"><strong>Precio:{price}€</strong></div>
       </div>
     </>
   );

@@ -18,7 +18,7 @@ function LoginForm() {
   return (
     <Form>
       <Row className="mb-3">
-        <Form.Group as={Col} md="4" controlId="validationCustom01" style={{
+        <Form.Group className="mb-3"  controlId="validationCustom01" style={{
             marginTop:"5vh"
         }}>
           <Form.Label style={{ color:"#C65D1A"}}><strong>Email:</strong></Form.Label>
@@ -29,8 +29,10 @@ function LoginForm() {
             
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>
-        <Form.Group as={Col} md="4" controlId="validationCustom02" style={{
+        </Form.Group>               
+      </Row>
+      <Row>
+      <Form.Group controlId="validationCustom02" style={{
             marginTop:"5vh"
         }}>
           <Form.Label style={{ color:"#C65D1A"}}><strong>Contraseña:</strong></Form.Label>
@@ -41,8 +43,7 @@ function LoginForm() {
             
           />
           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
-        </Form.Group>        
-      </Row>     
+        </Form.Group> </Row>     
       
       <div className='form-button-container'>
       <Button onClick={goToList}style={{

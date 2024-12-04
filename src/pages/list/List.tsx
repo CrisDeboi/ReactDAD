@@ -18,12 +18,19 @@ import TortillaImg from "../../assets/tortilla.jpeg";
 import PaellaImg from "../../assets/paella.jpg";
 import { useState } from "react";
 import { Modal, Button } from "react-bootstrap";
+import { useCart } from "../../context/CartContext";
+import Footer from "../../components/Footer/Footer";
 
 function List() {
-  const navigate = useNavigate();  
+  const navigate = useNavigate();
   const goToCart = () => {
     navigate("/cart");
   };
+
+  const { cartItems } = useCart();
+  const {addToCart} = useCart();
+  const [selectedItems, setSelectedItems] = useState({}); 
+ 
 
   const [showModal, setShowModal] = useState(false);
   const handleShow = () => setShowModal(true);
@@ -42,14 +49,57 @@ function List() {
     TortillaImg,
     PaellaImg,
   };
+
+  const handleQuantityChange = (id, quantity) => {
+    setSelectedItems((prevState) => ({
+      ...prevState,
+      [id]: {
+        ...(prevState[id] || {}),
+        quantity,
+      },
+    }));
+  };
+
+  const handleAddSelection = () => {
+    const itemsToAdd = Object.entries(selectedItems)
+      .filter(([_, item]) => item.quantity > 0)
+      .map(([id, item]) => ({
+        id,
+        ...cardsData.find((card) => card.id === id), // Encuentra los datos de la tarjeta
+        count: item.quantity,
+      }));
+
+    itemsToAdd.forEach((item) => {
+      // Aquí, pasas la imagen desde el imagesMap
+      addToCart({
+        ...item,
+        cardImg: imagesMap[item.cardImg], // Asegúrate de pasar la URL de la imagen
+      });
+    });
+    setShowModal(true); // Muestra el modal de confirmación.
+  };
+
+
   return (
     <>
       <Header />
       <Filter />
       <div className="cardContainer">
+        {/* {cartItems.map((item) => (
+          <div key={item.id} className="cartItem">
+            <img src={item.cardImg} alt="" style={{ width: "100px" }} />
+            <div>
+              <p>{item.cardDescription}</p>
+              <p>Precio: {item.cardPrice}€</p>
+              <p>Cantidad: {item.count}</p>
+            </div>
+          </div>
+        ))} */}
+
         {cardsData.map((card, index) => (
           <Card
-            key={index}
+            id={card.id}
+            key={card.id}
             cardPrice={card.cardPrice}
             cardDescription={card.cardDescription}
             cardServing={card.cardServing}
@@ -59,13 +109,14 @@ function List() {
             cardFats={card.cardFats}
             cardFiber={card.cardFiber}
             cardImg={imagesMap[card.cardImg]}
+            onQuantityChange={handleQuantityChange}
           />
         ))}
       </div>
       <div className="buttonListContainer">
         <Button
           variant="secondary"
-          onClick={handleShow}
+          onClick={handleAddSelection}
           style={{
             backgroundColor: "#C65D1A",
             borderColor: "#C65D1A",
@@ -117,6 +168,7 @@ function List() {
           </Modal.Footer>
         </Modal>
       </div>
+      <Footer/>
     </>
   );
 }

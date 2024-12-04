@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { Card as BootstrapCard, Button, Modal } from "react-bootstrap";
 import "./Card.css";
+import { useCart } from "../../context/CartContext";
 
 interface CardProps {
+  id: string;
   cardImg: string;
-  cardDescription?: string;  
+  cardDescription?: string;
   cardPrice?: number;
   cardServing?: number;
   cardEnergy?: number;
@@ -12,25 +14,45 @@ interface CardProps {
   cardProteins?: number;
   cardFats?: number;
   cardFiber?: number;
+  onQuantityChange: (id: string, quantity: number) => void;
 
 }
 
 function Card(props: CardProps) {
-  const { cardImg, cardDescription,cardPrice, cardServing, cardEnergy, cardCarbohydrates, cardProteins,cardFats,cardFiber } = props;
+  const { id, cardImg, cardDescription, cardPrice, cardServing, cardEnergy, cardCarbohydrates, cardProteins, cardFats, cardFiber, onQuantityChange } = props;
   const [counter, setCounter] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const { addToCart } = useCart();
   const handleShow = () => setShowModal(true);
   const handleClose = () => setShowModal(false);
+
+  const increment = () => {
+    const newCount = counter + 1;
+    setCounter(newCount);
+    props.onQuantityChange(id, newCount); 
+    
+    
+  }
+
+  const decrease = () => {
+    const newCount = Math.max(0, counter - 1);
+    setCounter(newCount);
+    props.onQuantityChange(id, newCount);    
+   
+  }
+
   const handleCloseAndAdd = () => {
-    setCounter((counter) => counter + 1);
+    increment();   
     handleClose();
   };
 
   return (
     <>
+    <div className="card-layout">
       <BootstrapCard
-        style={{
-          width: "40vw",
+        style={{       
+          width: "auto",
+          height: "25vh",
           borderRadius: "10px",
           marginTop: "20px",
           marginLeft: "15px",
@@ -41,7 +63,7 @@ function Card(props: CardProps) {
           variant="top"
           src={cardImg}
           onClick={handleShow}
-          style={{            
+          style={{
             width: "100%",
             height: "100%",
             objectFit: "cover",
@@ -64,27 +86,29 @@ function Card(props: CardProps) {
           >
             <div
               className="counterButton"
-              onClick={() => setCounter(counter > 0 ? counter - 1 : counter)}
+              onClick={() => decrease()}
             >
               -
             </div>
             <div>{counter}</div>
             <div
               className="counterButton"
-              onClick={() => setCounter((count) => count + 1)}
+              onClick={() => increment()}
             >
               +
             </div>
           </BootstrapCard.Text>
         </BootstrapCard.Body>
-      </BootstrapCard>
+      </BootstrapCard> 
+    </div>
+     
 
-      <Modal show={showModal} onHide={handleClose} centered style={{border:0}}>
+      <Modal show={showModal} onHide={handleClose} centered style={{ border: 0 }}>
         <Modal.Header
           closeButton
           closeVariant=""
           closeLabel="Cerrar"
-          style={{ padding: 0, border: 0}}
+          style={{ padding: 0, border: 0 }}
         >
           <img
             src={cardImg}
@@ -130,7 +154,7 @@ function Card(props: CardProps) {
             <div>{cardCarbohydrates}g</div>
             <div>{cardProteins}g</div>
             <div>{cardFats}g</div>
-            <div>{cardFiber}g</div>            
+            <div>{cardFiber}g</div>
           </div>
         </Modal.Body>
         <Modal.Footer

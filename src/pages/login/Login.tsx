@@ -1,24 +1,25 @@
 import Header from "../../components/Header/Header";
 import "./Login.css";
-import LoginImg from "../../assets/login.png"
 import LoginForm from "../../components/LoginForm/LoginForm";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
 
-function Login(){   
+function Login() {
 
-    return(
+    return (
         <>
-        <Header/>        
-        
-        <div className="container">
-            <div className="login-logo">
-
-                <img src={LoginImg} alt="vaya fiera" />
+            <Header />
+            <div className="container">
+                <div className="login-logo-container">
+                    <div className="login-logo">
+                        <FontAwesomeIcon icon={faUser} fontSize="10em" />
+                    </div>
+                </div>                
+                    <div className="login-form-container">
+                        <LoginForm />
+                    </div>
+                
             </div>
-            <LoginForm/>
-            
-        </div>
-        
-        
         </>
     )
 }

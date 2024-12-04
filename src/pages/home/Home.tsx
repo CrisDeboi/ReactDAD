@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import "./Home.css";
-import ButtonTsx from "../../components/Button/Button";
 import tacosImage from "../../assets/tacos.jpg";
 import espaguetisImage from "../../assets/espaguetis.jpg";
 import tupperImage from "../../assets/tuppers.jpg";
 import Footer from "../../components/Footer/Footer";
 import CarouselX from "../../components/Carousel/Carousel";
+import { Button } from "react-bootstrap";
 
 function Home() {
   const navigate = useNavigate();
@@ -18,19 +18,13 @@ function Home() {
           <h2>¡Bienvenido a ResponsiveMeals!</h2>
         </div>
 
-        <div className="buttonContainer" style={{
-          gap:"20vw"
-        }}>
-          <ButtonTsx text={"¡Planea tu Menú!"} onClick={() => navigate("/list")} />
-          <ButtonTsx
-            text={"Gestionar Suscripción"}
-            onClick={() => navigate("/subscription")}
-          />
+        <div className="buttonContainer">
+          <Button style={{backgroundColor:"#C65D1A",borderColor:"#C65D1A", width:"10em"}} onClick={() => navigate("/list")}><strong>¡Planea tu Menú!</strong></Button>
+          <Button style={{backgroundColor:"#C65D1A",borderColor:"#C65D1A", width:"10em"}} onClick={() => navigate("/subscription")}><strong>Gestionar Suscripción</strong></Button>          
+          
         </div>
 
-        <CarouselX />
-
-        
+        <CarouselX />       
 
         <div className="offer">
           <p id="offer">
