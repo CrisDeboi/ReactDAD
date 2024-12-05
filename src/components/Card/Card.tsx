@@ -76,6 +76,7 @@ function Card(props: CardProps) {
             borderBottomLeftRadius: "10px",
             borderBottomRightRadius: "10px",
             height: "8vh",
+            overflowY:"hidden",            
           }}
         >
           <BootstrapCard.Text
