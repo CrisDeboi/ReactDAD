@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import "./SubPlan.css";
 
 interface SubPlan {
-  title: string;
+  title: string; 
   description: string;
   price: number;
 }

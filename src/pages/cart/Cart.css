@@ -9,8 +9,7 @@
     max-height: 80vh;
     overflow: scroll;
     overflow-x: hidden;
-    scroll-behavior: smooth;
-    scrollbar-width: thin;   
+    scroll-behavior: smooth;      
     width: 50%;    
 }
 

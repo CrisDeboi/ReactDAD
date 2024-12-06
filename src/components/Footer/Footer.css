@@ -16,13 +16,14 @@
 .footer-content {
     display: flex;
     flex-direction: column;
-    margin-right: 1em;
+    margin-right: 2em;
 }
    
 
 .footer-menu a {
     text-decoration: none !important;
     color: inherit !important;
+    cursor: pointer;
 }
 
 #footerTitle {
@@ -49,13 +50,17 @@
     height: 120px;
 }
 
-.footer-logos img {
+.footer-socials img {
     width: 35px;
     height: 30px;
     margin-left: 1em;
     margin-right: 1em;
 }
 
+#bootstrap{
+    width: 70px ;
+    height: 70px ;
+}
 
 /* Media Queries */
 

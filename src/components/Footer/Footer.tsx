@@ -1,5 +1,6 @@
 import "./Footer.css";
 import RinconLogo from "/el-rincon.png"
+import BootstrapLogo from "/bootstrap.png"
 import InstagramLogo from "/instagram.webp"
 import TwitterLogo from "/twitter.png"
 import GithubLogo from "/github.png"
@@ -49,14 +50,15 @@ function Footer() {
           <div className="footer-menu">
             <div><strong>Entidades colaboradoras:</strong></div>
             <div className="footer-imgs">
-              <img src={RinconLogo} alt="El Rincón" />
+              <a target="_blank" href="https://ieselrincon.es"><img src={RinconLogo} alt="El Rincón"/></a>
+              <a target="_blank" href="https://react-bootstrap.netlify.app" ><img src={BootstrapLogo} alt="Bootstrap" id="bootstrap"/></a>
             </div>
           </div>
 
         </div>
         <div className="titleContainer">
           <h1 id="footerTitle">ResponsiveMeals</h1>
-          <div className="footer-logos">
+          <div className="footer-socials">
             <a target="_blank" href="https://www.instagram.com/cristian_sin_hxd/"><img src={InstagramLogo} alt="instagram" /></a>
             <a target="_blank" href="https://x.com/RinconGameDevs"><img src={TwitterLogo} alt="twitter" /></a>
             <a target="_blank" href="https://github.com/CrisDeboi"><img src={GithubLogo} alt="github" /></a>

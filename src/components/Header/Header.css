@@ -32,7 +32,7 @@
 }
 
 .offcanvas-container{
-  height: 35vh !important;
+  height: 35vh !important; 
 }
 
 
@@ -64,5 +64,8 @@
 /* Pantallas extra grandes (escritorios grandes) */
 @media (min-width: 1281px) {
   /* Estilos para pantallas mayores a 1280px */
+  .offcanvas-container{
+    height: 35vh !important; 
+  }
   
 }

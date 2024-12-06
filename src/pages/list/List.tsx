@@ -26,14 +26,11 @@ function List() {
   const goToCart = () => {
     navigate("/cart");
   };
-
-  const { cartItems } = useCart();
+  
   const {addToCart} = useCart();
-  const [selectedItems, setSelectedItems] = useState({}); 
- 
+  const [selectedItems, setSelectedItems] = useState({});  
 
-  const [showModal, setShowModal] = useState(false);
-  const handleShow = () => setShowModal(true);
+  const [showModal, setShowModal] = useState(false);  
   const handleClose = () => setShowModal(false);
   const imagesMap = {
     BurgirImg,
@@ -50,7 +47,7 @@ function List() {
     PaellaImg,
   };
 
-  const handleQuantityChange = (id, quantity) => {
+  const handleQuantityChange = (id: string | number, quantity: any) => {
     setSelectedItems((prevState) => ({
       ...prevState,
       [id]: {
@@ -65,18 +62,15 @@ function List() {
       .filter(([_, item]) => item.quantity > 0)
       .map(([id, item]) => ({
         id,
-        ...cardsData.find((card) => card.id === id), // Encuentra los datos de la tarjeta
+        ...cardsData.find((card) => card.id === id), 
         count: item.quantity,
       }));
 
-    itemsToAdd.forEach((item) => {
-      // Aquí, pasas la imagen desde el imagesMap
-      addToCart({
-        ...item,
-        cardImg: imagesMap[item.cardImg], // Asegúrate de pasar la URL de la imagen
+    itemsToAdd.forEach((item) => {     
+      addToCart({ ...item,cardImg: imagesMap[item.cardImg],
       });
     });
-    setShowModal(true); // Muestra el modal de confirmación.
+    setShowModal(true); 
   };
 
 
@@ -84,17 +78,7 @@ function List() {
     <>
       <Header />
       <Filter />
-      <div className="cardContainer">
-        {/* {cartItems.map((item) => (
-          <div key={item.id} className="cartItem">
-            <img src={item.cardImg} alt="" style={{ width: "100px" }} />
-            <div>
-              <p>{item.cardDescription}</p>
-              <p>Precio: {item.cardPrice}€</p>
-              <p>Cantidad: {item.count}</p>
-            </div>
-          </div>
-        ))} */}
+      <div className="cardContainer">       
 
         {cardsData.map((card, index) => (
           <Card
