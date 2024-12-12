@@ -62,6 +62,7 @@ function Card(props: CardProps) {
         <BootstrapCard.Img
           variant="top"
           src={cardImg}
+          alt={id}
           onClick={handleShow}
           style={{
             width: "100%",

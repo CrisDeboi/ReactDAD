@@ -35,14 +35,16 @@ function Header() {
         <div className="header-icon" onClick={toggleShow}><FontAwesomeIcon icon={faBars} style={{ fontSize: "2em", color: "#fde1c1", }} /></div>
         <div className="offcanvas-container">
         <Offcanvas show={show} onHide={handleClose} scroll={true} backdrop={true} placement="end" style={{
-          height: "26.6vh",
+          height: "40vh",
           width: "auto",
           backgroundColor: "#f47521",
 
 
 
         }}>
-          <Offcanvas.Header closeButton>
+          <Offcanvas.Header closeButton style={{
+            overflow:"hidden",
+          }}>
           </Offcanvas.Header>
           <Offcanvas.Body style={{
             padding: "0",

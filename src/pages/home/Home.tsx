@@ -46,7 +46,7 @@ function Home() {
         </div>
         <div className="description">
           <div className="descriptionImg">
-            <img src={espaguetisImage} alt="tacos" />
+            <img src={espaguetisImage} alt="espqguetis" />
           </div>
           <div className="descriptionText">
             <p id="descriptionText">
@@ -59,7 +59,7 @@ function Home() {
             <p id="descriptionText">Recibirás tu comida en envases adaptados</p>
           </div>
           <div className="descriptionImg">
-            <img src={tupperImage} alt="tacos" />
+            <img src={tupperImage} alt="tuppers" />
           </div>
         </div>
 

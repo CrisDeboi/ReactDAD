@@ -65,13 +65,18 @@ function List() {
         ...cardsData.find((card) => card.id === id), 
         count: item.quantity,
       }));
-
+  
+    if (itemsToAdd.length === 0) {
+      window.alert("Por favor, selecciona al menos un producto.");
+      return;
+    }
+  
     itemsToAdd.forEach((item) => {     
-      addToCart({ ...item,cardImg: imagesMap[item.cardImg],
-      });
+      addToCart({ ...item, cardImg: imagesMap[item.cardImg] });
     });
     setShowModal(true); 
   };
+  
 
 
   return (

@@ -24,7 +24,7 @@ function CarouselX() {
         >
           <img
             src={BurgerImg}
-            alt="First slide"
+            alt="Hamburguesa"
             style={{ height: "170px", width: "400px", objectFit: "cover" }}
           />
         </div>
@@ -40,7 +40,7 @@ function CarouselX() {
         >
           <img
             src={PotatoesImg}
-            alt="Second slide"
+            alt="Papas"
             style={{ height: "170px", width: "400px", objectFit: "cover" }}
           />
         </div>
@@ -56,7 +56,7 @@ function CarouselX() {
         >
           <img
             src={PaellaImg}
-            alt="Third slide"
+            alt="Paella"
             style={{ height: "170px", width: "400px", objectFit: "cover" }}
           />
         </div>

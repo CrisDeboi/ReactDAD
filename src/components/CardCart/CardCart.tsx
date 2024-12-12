@@ -27,6 +27,7 @@ function CardCart(props: CardProps) {
                     <BootstrapCard.Img
                         variant="top"
                         src={cardImg}
+                        alt="comida"
                         style={{
                             width: "100%",
                             height: "100%",
